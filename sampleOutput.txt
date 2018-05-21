@@ -4,1729 +4,2017 @@ when
 	eval(message.checkOID(".1.3.6.1.4.1.74.1.30.2.1.0") == true)
 then
 	o_9452' == 'eth1'
-endrule "Netgate: WAN Circuit Monitoring-Primary WAN Circuit Failed"
+end
+rule "Netgate: WAN Circuit Monitoring-Primary WAN Circuit Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.74.1.30.2.1.0") == true)
 then
 	'o_9452' == 'eth2'
-endrule "Dell OpenManage: Array-Dell: OpenManage Array Disk Resynching"
+end
+rule "Dell OpenManage: Array-Dell: OpenManage Array Disk Resynching"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.4.1.4") == true)
 then
 	(o_2381 == 15)
-endrule "Dell OpenManage: Array-Dell: OpenManage Array Disk Failed"
+end
+rule "Dell OpenManage: Array-Dell: OpenManage Array Disk Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.4.1.4") == true)
 then
 	(o_2381 == 2)
-endrule "Dell OpenManage: Array-Dell: OpenManage Array Rebuilding"
+end
+rule "Dell OpenManage: Array-Dell: OpenManage Array Rebuilding"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.4.1.4") == true)
 then
 	(o_2381 == 24)
-endrule "Dell OpenManage: Array-Dell: OpenManage Array Degraded Disk"
+end
+rule "Dell OpenManage: Array-Dell: OpenManage Array Degraded Disk"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.4.1.4") == true)
 then
 	(o_2381 == 6)
-endrule "Dell OpenManage: Array-Dell: OpenManage Array Disk Recovering"
+end
+rule "Dell OpenManage: Array-Dell: OpenManage Array Disk Recovering"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.4.1.4") == true)
 then
 	(o_2381 == 7)
-endrule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Down"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Down"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status") == true)
 then
 	(result('o_20910') == 'down') or (result('o_20910') == 'die')
-endrule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Recovered"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Recovered"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status") == true)
 then
 	(result('o_20910') == 'up') and active(a_2553)
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Down"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Down"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	(result('o_20931') == 'down') or (result('o_20931') == 'die')
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Down"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Down"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	(result('o_20931') == 'down') or (result('o_20931') == 'die')
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Recovered"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Recovered"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	(result('o_20931') == 'up') and active(a_2562)
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Recovered"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Recovered"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	(result('o_20931') == 'up') and active(a_2562)
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Down"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Down"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W1") == true)
 then
 	(result('o_20935') == 'down') or (result('o_20935') == 'die')
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Down"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Down"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W1") == true)
 then
 	(result('o_20935') == 'down') or (result('o_20935') == 'die')
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Recovered"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Recovered"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W1") == true)
 then
 	(result('o_20935') == 'up') and active(a_2574)
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Recovered"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN1 Recovered"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W1") == true)
 then
 	(result('o_20935') == 'up') and active(a_2574)
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Returned to Normal"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/AvailableSpace") == true)
 then
 	(result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0/ o_14751, 2)) < threshold(t_524)) and (active(a_2029) or active(a_2030))
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Returned to Normal"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/FileSystemSize") == true)
 then
 	(result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0/ o_14751, 2)) < threshold(t_524)) and (active(a_2029) or active(a_2030))
-endrule "EMC: VNX Array Configuration-EMC: VNX array status has returned to normal"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX array status has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_ArrayChassis/HealthState?filter=Tag;unique=Tag") == true)
 then
 	o_14527 == 5 and active(a_2456) or o_14527 == 5 and active(a_2457)
-endrule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status has returned to normal"
+end
+rule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("SMIS://Clar_SpCard/HealthState/filter=Tag,unique=Tag") == true)
 then
 	o_14612 == 5 and active(a_2469) or o_14612 == 5 and active(a_2468)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status has returned to normal"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_EnclosureChassis/HealthState?filter=Tag;unique=ElementName") == true)
 then
 	o_14698 == 5 and active(a_2484) or o_14698 == 5 and active(a_2485)
-endrule "Dell OpenManage: Status-Dell Power Supply Redundancy is Normal"
+end
+rule "Dell OpenManage: Status-Dell Power Supply Redundancy is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.6") == true)
 then
 	o_2389 == 3 and (active(a_495) or active(a_494))
-endrule "Dell OpenManage: Status-Dell Power Supply Redundancy is Degraded"
+end
+rule "Dell OpenManage: Status-Dell Power Supply Redundancy is Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.6") == true)
 then
 	o_2389 == 4
-endrule "Dell OpenManage: Status-Dell Power Supply Redundancy has been Lost"
+end
+rule "Dell OpenManage: Status-Dell Power Supply Redundancy has been Lost"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.6") == true)
 then
 	o_2389 == 5
-endrule "Dell OpenManage: Status-Dell Voltage Status  is Critical"
+end
+rule "Dell OpenManage: Status-Dell Voltage Status  is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	o_2391 == 5
-endrule "Dell OpenManage: Status-Dell Voltage Status is Normal"
+end
+rule "Dell OpenManage: Status-Dell Voltage Status is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	o_2391 == 5 and active(a_497)
-endrule "Dell OpenManage: Status-Dell Fan Redundancy is Normal"
+end
+rule "Dell OpenManage: Status-Dell Fan Redundancy is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.18") == true)
 then
 	o_2392 == 3 and (active(a_500) or active(a_499))
-endrule "Dell OpenManage: Status-Dell Fan Redundancy is Degraded"
+end
+rule "Dell OpenManage: Status-Dell Fan Redundancy is Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.18") == true)
 then
 	o_2392 == 4
-endrule "Dell OpenManage: Status-Dell Fan Redundancy has been Lost"
+end
+rule "Dell OpenManage: Status-Dell Fan Redundancy has been Lost"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.18") == true)
 then
 	o_2392 == 5
-endrule "Dell OpenManage: Status-Dell Temperature Status is Normal"
+end
+rule "Dell OpenManage: Status-Dell Temperature Status is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	o_2393 == 3 and active(a_502)
-endrule "Dell OpenManage: Status-Dell Temperature Status is Critical"
+end
+rule "Dell OpenManage: Status-Dell Temperature Status is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	o_2393 == 5
-endrule "Dell OpenManage: Status-Dell Memory Status is Normal"
+end
+rule "Dell OpenManage: Status-Dell Memory Status is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.27") == true)
 then
 	o_2394 == 3 and active(a_504)
-endrule "Dell OpenManage: Status-Dell Memory Status is Critical"
+end
+rule "Dell OpenManage: Status-Dell Memory Status is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.27") == true)
 then
 	o_2394 == 5
-endrule "Dell OpenManage: Status-Dell DMA Status is Normal"
+end
+rule "Dell OpenManage: Status-Dell DMA Status is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.500.60.1.5") == true)
 then
 	o_2398 == 3 and active(a_506)
-endrule "Dell OpenManage: Status-Dell DMA Status is Critical"
+end
+rule "Dell OpenManage: Status-Dell DMA Status is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.500.60.1.5") == true)
 then
 	o_2398 == 5
-endrule "Dell OpenManage: Status-Dell BIOS Status is Normal"
+end
+rule "Dell OpenManage: Status-Dell BIOS Status is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.300.50.1.5") == true)
 then
 	o_2399 == 3 and active(a_508)
-endrule "Dell OpenManage: Status-Dell BIOS Status is Critical"
+end
+rule "Dell OpenManage: Status-Dell BIOS Status is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.300.50.1.5") == true)
 then
 	o_2399 == 5
-endrule "Dell OpenManage: Status-Dell SCSI Controller is Normal"
+end
+rule "Dell OpenManage: Status-Dell SCSI Controller is Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.1.1.37") == true)
 then
 	o_2400 == 3 and active(a_510)
-endrule "Dell OpenManage: Status-Dell SCSI Controller is Critical"
+end
+rule "Dell OpenManage: Status-Dell SCSI Controller is Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.130.1.1.37") == true)
 then
 	o_2400 == 5
-endrule "Dell OpenManage: Status-Dell Virtual Disk is Ready"
+end
+rule "Dell OpenManage: Status-Dell Virtual Disk is Ready"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.140.1.1.4") == true)
 then
 	o_2401 == 1 and (active(a_490) or active(a_491) or active(a_492))
-endrule "Dell OpenManage: Status-Dell Virtual Disk Status is now Rebuilding"
+end
+rule "Dell OpenManage: Status-Dell Virtual Disk Status is now Rebuilding"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.140.1.1.4") == true)
 then
 	o_2401 == 24
-endrule "Dell OpenManage: Status-Dell Virtual Disk Status is Degraded"
+end
+rule "Dell OpenManage: Status-Dell Virtual Disk Status is Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.140.1.1.4") == true)
 then
 	o_2401 == 6
-endrule "Dell OpenManage: Status-Dell Virtual Disk Status is now Resynching"
+end
+rule "Dell OpenManage: Status-Dell Virtual Disk Status is now Resynching"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.1.20.140.1.1.4") == true)
 then
 	o_2401 ==15
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NORMAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NORMAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.3") == true)
 then
 	o_2421 == 1 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0 and (active(a_516) or active(a_518) or active(a_517) or active(a_515))
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NORMAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NORMAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.4") == true)
 then
 	o_2421 == 1 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0 and (active(a_516) or active(a_518) or active(a_517) or active(a_515))
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = WARNING"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = WARNING"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.3") == true)
 then
 	o_2421 == 2 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = WARNING"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = WARNING"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.4") == true)
 then
 	o_2421 == 2 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = CRITICAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = CRITICAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.3") == true)
 then
 	o_2421 == 3 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = CRITICAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = CRITICAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.4") == true)
 then
 	o_2421 == 3 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = SHUTDOWN"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = SHUTDOWN"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.3") == true)
 then
 	o_2421 == 4 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = SHUTDOWN"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = SHUTDOWN"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.4") == true)
 then
 	o_2421 == 4 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NOT FUNCTIONING"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NOT FUNCTIONING"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.3") == true)
 then
 	o_2421 == 6 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NOT FUNCTIONING"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Power Supply State = NOT FUNCTIONING"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.4") == true)
 then
 	o_2421 == 6 and result(o_2422, enums={1: 'unknown', 2: 'ac', 3: 'dc', 4: 'externalPowerSupply', 5: 'internalRedundant'}) > 0
-endrule "Informant: Exch WMI Queues-Exchange Queue has Resumed"
+end
+rule "Informant: Exch WMI Queues-Exchange Queue has Resumed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.9600.1.23.4.1.13") == true)
 then
 	o_3127 == 2 and active(a_665)
-endrule "Informant: Exch WMI Queues-Exchange Queue has Stopped"
+end
+rule "Informant: Exch WMI Queues-Exchange Queue has Stopped"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.9600.1.23.4.1.13") == true)
 then
 	o_3127 ==1
-endrule "Dell PowerVault: Tape Library Configuration-Dell PowerVault has Shutdown Abnormally"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell PowerVault has Shutdown Abnormally"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.2.10") == true)
 then
 	result (o_2434) == 4
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.11") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 2 and (active(a_584) or active(a_585))
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.14") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 2 and (active(a_584) or active(a_585))
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive Degraded"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.11") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 3
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive Degraded"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.14") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 3
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.11") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 4
-endrule "HP ISM: Disk Array-HP-ISM: Logical Drive Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Logical Drive Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.3.1.1.14") == true)
 then
 	result (o_2822, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}, label='o_2823') == 4
-endrule "HP ISM: Disk Array-HP-ISM: Drive Controller OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Drive Controller OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.12") == true)
 then
 	result (o_2825, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 2 and (active(a_581) or active(a_582))
-endrule "HP ISM: Disk Array-HP-ISM: Drive Controller Degraded"
+end
+rule "HP ISM: Disk Array-HP-ISM: Drive Controller Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.12") == true)
 then
 	result (o_2825, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 3
-endrule "HP ISM: Disk Array-HP-ISM: Drive Controller Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Drive Controller Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.12") == true)
 then
 	result (o_2825, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 4
-endrule "HP ISM: Disk Array-HP-ISM: Disk Controller OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Controller OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.10") == true)
 then
 	result (o_2826, enums={1: 'other', 2: 'OK', 3: 'GeneralFailure', 4: 'CableProblem', 5: 'PoweredOff'}) == 2 and (active(a_578) or active(a_579))
-endrule "HP ISM: Disk Array-HP-ISM: Disk Controller  General Failure"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Controller  General Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.10") == true)
 then
 	result (o_2826, enums={1: 'other', 2: 'OK', 3: 'GeneralFailure', 4: 'CableProblem', 5: 'PoweredOff'}) == 3
-endrule "HP ISM: Disk Array-HP-ISM: Disk Controller Cable Problem"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Controller Cable Problem"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.10") == true)
 then
 	result (o_2826, enums={1: 'other', 2: 'OK', 3: 'GeneralFailure', 4: 'CableProblem', 5: 'PoweredOff'}) == 4
-endrule "HP ISM: Disk Array-HP-ISM: Disk Array Status OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Array Status OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.6") == true)
 then
 	result (o_2827, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 2 and (active(a_572) or active(a_573))
-endrule "HP ISM: Disk Array-HP-ISM: Disk Array Status Degraded"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Array Status Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.6") == true)
 then
 	result (o_2827, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 3
-endrule "HP ISM: Disk Array-HP-ISM: Disk Array Status Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Disk Array Status Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.2.1.1.6") == true)
 then
 	result (o_2827, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 4
-endrule "HP ISM: Asset-HP-ISM:  Overall Condition Degraded"
+end
+rule "HP ISM: Asset-HP-ISM:  Overall Condition Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.2.1.3") == true)
 then
 	result (o_2861, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'})  == 3
-endrule "HP ISM: Asset-HP-ISM:  Overall Condition OK"
+end
+rule "HP ISM: Asset-HP-ISM:  Overall Condition OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.2.1.3") == true)
 then
 	result (o_2861, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 2 and (active(a_597) or active(a_598))
-endrule "HP ISM: Asset-HP-ISM:  Overall Condition Failed"
+end
+rule "HP ISM: Asset-HP-ISM:  Overall Condition Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.2.1.3") == true)
 then
 	result (o_2861, enums={1: 'other', 2: 'OK', 3: 'Degraded', 4: 'Failed'}) == 4
-endrule "IBM Director: Win32 Status-IBM Director: BIOS Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: BIOS Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.460.1.4") == true)
 then
 	result(' o_2963') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: BIOS Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: BIOS Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.460.1.4") == true)
 then
 	result(' o_2963') == 'OK' and active(a_614)
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Critical"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Critical"
 when
 	message:Message()
 	eval(message.checkOID("name") == true)
 then
 	result('o_14541', label='o_14543') == 'Non-Recoverable Error'
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Critical"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14541', label='o_14543') == 'Non-Recoverable Error'
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Healthy"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Healthy"
 when
 	message:Message()
 	eval(message.checkOID("name") == true)
 then
 	result('o_14541', label='o_14543') == 'OK' and (active(a_2459) or active(a_2460) or active(a_2461) or active(a_2462))
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Healthy"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Healthy"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14541', label='o_14543') == 'OK' and (active(a_2459) or active(a_2460) or active(a_2461) or active(a_2462))
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Major"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Major"
 when
 	message:Message()
 	eval(message.checkOID("name") == true)
 then
 	result('o_14541', label='o_14543') in ('Degraded', 'Error', 'Supporting Entity in Error')
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Major"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Major"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14541', label='o_14543') in ('Degraded', 'Error', 'Supporting Entity in Error')
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Minor"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Minor"
 when
 	message:Message()
 	eval(message.checkOID("name") == true)
 then
 	result('o_14541', label='o_14543') in ('Stressed', 'Predictive Failure')
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Minor"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Minor"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14541', label='o_14543') in ('Stressed', 'Predictive Failure')
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Notice"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Notice"
 when
 	message:Message()
 	eval(message.checkOID("name") == true)
 then
 	result('o_14541', label='o_14543') in ('Unknown', 'No Contact', 'Lost Communication')
-endrule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Notice"
+end
+rule "EMC: VNX RAID Group Configuration-EMC: VNX RAID group status: Notice"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14541', label='o_14543') in ('Unknown', 'No Contact', 'Lost Communication')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Critical"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/PoolID?filter=InstanceID") == true)
 then
 	result('o_14670', label='o_14669') == 'Non-Recoverable Error'
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Critical"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14670', label='o_14669') == 'Non-Recoverable Error'
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Healthy"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Healthy"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/PoolID?filter=InstanceID") == true)
 then
 	result('o_14670', label='o_14669') == 'OK' and (active(a_2471) or active(a_2472) or active(a_2473) or active(a_2474))
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Healthy"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Healthy"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14670', label='o_14669') == 'OK' and (active(a_2471) or active(a_2472) or active(a_2473) or active(a_2474))
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Major"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Major"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/PoolID?filter=InstanceID") == true)
 then
 	result('o_14670', label='o_14669') in ('Degraded', 'Error', 'Supporting Entity in Error')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Major"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Major"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14670', label='o_14669') in ('Degraded', 'Error', 'Supporting Entity in Error')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Minor"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Minor"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/PoolID?filter=InstanceID") == true)
 then
 	result('o_14670', label='o_14669') in ('Stressed', 'Predictive Failure')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Minor"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Minor"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14670', label='o_14669') in ('Stressed', 'Predictive Failure')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Notice"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Notice"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/PoolID?filter=InstanceID") == true)
 then
 	result('o_14670', label='o_14669') in ('Unknown', 'No Contact', 'Lost Communication')
-endrule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Notice"
+end
+rule "EMC: VNX Storage Pool Configuration-EMC: VNX storage pool status: Notice"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/StatusDescriptions?filter=InstanceID#0") == true)
 then
 	result('o_14670', label='o_14669') in ('Unknown', 'No Contact', 'Lost Communication')
-endrule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Gwdetect N/A"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - TSI-WAN2 Gwdetect N/A"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status") == true)
 then
 	result('o_20910') == 'N/A'
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Gwdetect N/A"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Gwdetect N/A"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	result('o_20931') == 'N/A'
-endrule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Gwdetect N/A"
+end
+rule "Secondary Traffic Monitor - SSH - No VPN - PARADIES-WAN2 Gwdetect N/A"
 when
 	message:Message()
 	eval(message.checkOID("Traffic_Status_W2") == true)
 then
 	result('o_20931') == 'N/A'
-endrule "IBM Director: Win32 Status-IBM Director: Codec Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Codec Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.190.1.4") == true)
 then
 	result('o_2947') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Codec Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Codec Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.190.1.4") == true)
 then
 	result('o_2947') == 'OK' and active(a_618)
-endrule "IBM Director: Win32 Status-IBM Director: Page File Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Page File Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.210.1.6") == true)
 then
 	result('o_2948') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Page File Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Page File Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.210.1.6") == true)
 then
 	result('o_2948') == 'OK' and active(a_638)
-endrule "IBM Director: Win32 Status-IBM Director: System Account Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: System Account Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.250.1.4") == true)
 then
 	result('o_2949') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: System Account Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: System Account Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.250.1.4") == true)
 then
 	result('o_2949') == 'OK' and active(a_648)
-endrule "IBM Director: Win32 Status-IBM Director: Device Memory Address Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Device Memory Address Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.290.1.3") == true)
 then
 	result('o_2950') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Device Memory Address Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Device Memory Address Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.290.1.3") == true)
 then
 	result('o_2950') == 'OK' and active(a_620)
-endrule "IBM Director: Win32 Status-IBM Director: Disk Drives Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Disk Drives Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.30.1.21") == true)
 then
 	result('o_2951') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Disk Drives Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Disk Drives Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.30.1.21") == true)
 then
 	result('o_2951') == 'OK' and active(a_622)
-endrule "IBM Director: Win32 Status-IBM Director: Port Resource Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Port Resource Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.300.1.3") == true)
 then
 	result('o_2952') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Port Resource Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Port Resource Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.300.1.3") == true)
 then
 	result('o_2952') == 'OK' and active(a_642)
-endrule "IBM Director: Win32 Status-IBM Director: DMA Channel Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: DMA Channel Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.310.1.3") == true)
 then
 	result('o_2953') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: DMA Channel Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: DMA Channel Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.310.1.3") == true)
 then
 	result('o_2953') == 'OK' and active(a_624)
-endrule "IBM Director: Win32 Status-IBM Director: Environment Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Environment Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.320.1.6") == true)
 then
 	result('o_2954') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Environment Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Environment Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.320.1.6") == true)
 then
 	result('o_2954') == 'OK' and active(a_626)
-endrule "IBM Director: Win32 Status-IBM Director: IRQ Resource Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: IRQ Resource Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.330.1.4") == true)
 then
 	result('o_2955') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: IRQ Resource Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: IRQ Resource Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.330.1.4") == true)
 then
 	result('o_2955') == 'OK' and active(a_628)
-endrule "IBM Director: Win32 Status-IBM Director: Load Order Group Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Load Order Group Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.340.1.5") == true)
 then
 	result('o_2956') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Load Order Group Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Load Order Group Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.340.1.5") == true)
 then
 	result('o_2956') == 'OK' and active(a_630)
-endrule "IBM Director: Win32 Status-IBM Director: Network Client Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Network Client Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.350.1.4") == true)
 then
 	result('o_2957') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Network Client Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Network Client Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.350.1.4") == true)
 then
 	result('o_2957') == 'OK' and active(a_632)
-endrule "IBM Director: Win32 Status-IBM Director: Share Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Share Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.360.1.7") == true)
 then
 	result('o_2958') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Share Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Share Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.360.1.7") == true)
 then
 	result('o_2958') == 'OK' and active(a_646)
-endrule "IBM Director: Win32 Status-IBM Director: Registry Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Registry Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.370.1.6") == true)
 then
 	result('o_2959') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Registry Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Registry Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.370.1.6") == true)
 then
 	result('o_2959') == 'OK' and active(a_644)
-endrule "IBM Director: Win32 Status-IBM Director: Network Protocol Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Network Protocol Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.380.1.20") == true)
 then
 	result('o_2960') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Network Protocol Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Network Protocol Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.380.1.20") == true)
 then
 	result('o_2960') == 'OK' and active(a_634)
-endrule "IBM Director: Win32 Status-IBM Director: CDROM Drive Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: CDROM Drive Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.40.1.15") == true)
 then
 	result('o_2961') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: CDROM Drive Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: CDROM Drive Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.40.1.15") == true)
 then
 	result('o_2961') == 'OK' and active(a_616)
-endrule "IBM Director: Win32 Status-IBM Director: Operating System Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Operating System Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.430.1.26") == true)
 then
 	result('o_2962') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Operating System Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Operating System Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.430.1.26") == true)
 then
 	result('o_2962') == 'OK' and active(a_636)
-endrule "IBM Director: Win32 Status-IBM Director: Pointing Device Status not OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Pointing Device Status not OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.50.1.9") == true)
 then
 	result('o_2964') != 'OK'
-endrule "IBM Director: Win32 Status-IBM Director: Pointing Device Status OK."
+end
+rule "IBM Director: Win32 Status-IBM Director: Pointing Device Status OK."
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.2.6.159.1.2.10.50.1.9") == true)
 then
 	result('o_2964') == 'OK' and active(a_640)
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate Minimum VPN Count"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate Minimum VPN Count"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.1.1") == true)
 then
 	result( o_13633 ) <  t_511
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate VPN Count Okay"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate VPN Count Okay"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.1.1") == true)
 then
 	result( o_13633 ) >=  t_511 and active( a_1936 )
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate CPU Below Threshold"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate CPU Below Threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.4.1.3") == true)
 then
 	result( o_13638 ) <= threshold( t_509) and active(a_1932)
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate CPU Over Threshold"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate CPU Over Threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.4.1.3") == true)
 then
 	result( o_13638 ) > threshold( t_509)
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate Memory Below Threshold"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate Memory Below Threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.4.1.4") == true)
 then
 	result( o_13639 ) <= threshold( t_510) and active(a_1934)
-endrule "Fortinet: Fortigate System-Fortinet: Fortigate Memory Over Threshold"
+end
+rule "Fortinet: Fortigate System-Fortinet: Fortigate Memory Over Threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.4.1.4") == true)
 then
 	result( o_13639 ) > threshold( t_510)
-endrule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	result( o_2275)  == 3 and (active(a_437) or active(a_438) or active(a_439))
-endrule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	result( o_2275)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	result( o_2275)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Voltage Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.12") == true)
 then
 	result( o_2275)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.21") == true)
 then
 	result( o_2276)  == 3 and (active(a_413) or active(a_414) or active(a_415))
-endrule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.21") == true)
 then
 	result( o_2276)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.21") == true)
 then
 	result( o_2276)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Cooling Device Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.21") == true)
 then
 	result( o_2276)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	result( o_2277)  == 3 and (active(a_433) or active(a_434) or active(a_435))
-endrule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	result( o_2277)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	result( o_2277)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Temperature Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.24") == true)
 then
 	result( o_2277)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.30") == true)
 then
 	result( o_2278)  == 3 and (active(a_421) or active(a_422) or active(a_423))
-endrule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.30") == true)
 then
 	result( o_2278)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.30") == true)
 then
 	result( o_2278)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Intrusion Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.30") == true)
 then
 	result( o_2278)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.41") == true)
 then
 	result( o_2279)  == 3 and (active(a_417) or active(a_418) or active(a_419))
-endrule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.41") == true)
 then
 	result( o_2279)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.41") == true)
 then
 	result( o_2279)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM:  Event Log Status = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.41") == true)
 then
 	result( o_2279)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.50") == true)
 then
 	result( o_2280)  == 3 and (active(a_429) or active(a_430) or active(a_431))
-endrule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.50") == true)
 then
 	result( o_2280)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.50") == true)
 then
 	result( o_2280)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Processor Device Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.50") == true)
 then
 	result( o_2280)  == 6
-endrule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = OK"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.52") == true)
 then
 	result( o_2281)  == 3 and (active(a_409) or active(a_410) or active(a_411))
-endrule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Non-Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Non-Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.52") == true)
 then
 	result( o_2281)  == 4
-endrule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Critical"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.52") == true)
 then
 	result( o_2281)  == 5
-endrule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Non-Recoverable"
+end
+rule "Dell OM: System State Group Advanced-Dell OM: Battery Status Combined = Non-Recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10892.1.200.10.1.52") == true)
 then
 	result( o_2281)  == 6
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory has returned to normal"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.2") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) <= threshold(t_233) and active(a_1070)
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory has returned to normal"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.3") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) <= threshold(t_233) and active(a_1070)
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded threshold"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.2") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) > threshold(t_233)
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded threshold"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.3") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) > threshold(t_233)
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded minor threshold"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded minor threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.2") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) > threshold(t_351)
-endrule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded minor threshold"
+end
+rule "Cisco: WLC Memory-Cisco: WLC Physical Memory exceeded minor threshold"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.1.1.5.3") == true)
 then
 	result((o_6497 - o_6498)/o_6497*100) > threshold(t_351)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Returned To Healthy"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Returned To Healthy"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2464) or     result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2465) or    result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2466)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Returned To Healthy"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Returned To Healthy"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2464) or     result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2465) or    result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= threshold(t_733) and active(a_2466)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Minor Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Minor Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_733) and (0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= t_734
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Minor Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Minor Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_733) and (0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= t_734
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_734) and (0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= (t_735)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_734) and (0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) <= (t_735)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_735)
-endrule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX RAID Group Capacity Performance-EMC: VNX RAID Group Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_DeviceStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14549 == 0 else round(((o_14549 - o_14550) * 100.0 / o_14549), 2)) > threshold(t_735)
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Returned to Normal"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2476) or     result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2477) or     result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2478)
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Returned to Normal"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2476) or     result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2477) or     result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= threshold(t_736) and active(a_2478)
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Minor Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Minor Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_736) and result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= t_737
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Minor Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Minor Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_736) and result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= t_737
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_737) and result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= t_738
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_737) and result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) <= t_738
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_738)
-endrule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX Storage Pool Capacity Performance-EMC: VNX Storage Pool Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_UnifiedStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_14677 == 0 else round((o_14677 - o_14678) * 100.0 / o_14677, 2)) > threshold(t_738)
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/AvailableSpace") == true)
 then
 	result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) >= threshold(t_523)
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/FileSystemSize") == true)
 then
 	result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) >= threshold(t_523)
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/AvailableSpace") == true)
 then
 	result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) >= threshold(t_524) and (0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) < t_523
-endrule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Major Threshold Exceeded"
+end
+rule "EMC: VNX File System Capacity Performance-EMC: VNX File System Utilization Major Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Celerra_UxfsLocalFileSystem/FileSystemSize") == true)
 then
 	result(0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) >= threshold(t_524) and (0 if o_14751 == 0 else round((o_14751 - o_14750) * 100.0 / o_14751, 2)) < t_523
-endrule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Returned to Normal"
+end
+rule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_SnapStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_20155 == 0 else round((o_20155 - o_20156) * 100.0 / o_20155, 2)) <= threshold(t_740) and active(a_2489)
-endrule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Returned to Normal"
+end
+rule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Returned to Normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_SnapStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_20155 == 0 else round((o_20155 - o_20156) * 100.0 / o_20155, 2)) <= threshold(t_740) and active(a_2489)
-endrule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_SnapStoragePool/RemainingManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_20155 == 0 else round((o_20155 - o_20156) * 100.0 / o_20155, 2)) > threshold(t_740)
-endrule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Critical Threshold Exceeded"
+end
+rule "EMC: VNX SnapView Storage Pool Capacity Performance-EMC: VNX SnapView Pool Utilization Critical Threshold Exceeded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_SnapStoragePool/TotalManagedSpace?filter=InstanceID") == true)
 then
 	result(0 if o_20155 == 0 else round((o_20155 - o_20156) * 100.0 / o_20155, 2)) > threshold(t_740)
-endrule "Cisco Meraki: Device Config-Cisco Meraki: Device Offline"
+end
+rule "Cisco Meraki: Device Config-Cisco Meraki: Device Offline"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.29671.1.1.4.1.3") == true)
 then
 	result(int(o_13949)) is 0
-endrule "Cisco Meraki: Device Config-Cisco Meraki: Device Back Online"
+end
+rule "Cisco Meraki: Device Config-Cisco Meraki: Device Back Online"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.29671.1.1.4.1.3") == true)
 then
 	result(int(o_13949)) is 1 and active(a_2002)
-endrule "EMC: VNX Array Configuration-EMC: VNX array status is degraded"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX array status is degraded"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_ArrayChassis/HealthState?filter=Tag;unique=Tag") == true)
 then
 	result(o_14527, enums={10:'Degraded/Warning', 15:'Minor failure', 20:'Major failure'}) in (10, 15, 20)
-endrule "EMC: VNX Array Configuration-EMC: VNX array status is critical"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX array status is critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_ArrayChassis/HealthState?filter=Tag;unique=Tag") == true)
 then
 	result(o_14527, enums={25:'Critical failure', 30:'Non-recoverable error'}) in (25, 30)
-endrule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval has returned to normal"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_BlockStatisticsService/EnabledState?filter=SystemName;unique=SystemName") == true)
 then
 	result(o_14530) <=  threshold(t_522) and  o_14529 == 2 and active(a_2027)
-endrule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval has returned to normal"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_QueryStatisticsCollection/SampleInterval?filter=InstanceID;unique=InstanceID") == true)
 then
 	result(o_14530) <=  threshold(t_522) and  o_14529 == 2 and active(a_2027)
-endrule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval exceeded threshold"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_BlockStatisticsService/EnabledState?filter=SystemName;unique=SystemName") == true)
 then
 	result(o_14530) >  threshold(t_522) and  o_14529 == 2
-endrule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval exceeded threshold"
+end
+rule "EMC: VNX Array Configuration-EMC: VNX Statistics Logging Interval exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID("smis.query://Clar_QueryStatisticsCollection/SampleInterval?filter=InstanceID;unique=InstanceID") == true)
 then
 	result(o_14530) >  threshold(t_522) and  o_14529 == 2
-endrule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status is degraded"
+end
+rule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status is degraded"
 when
 	message:Message()
 	eval(message.checkOID("SMIS://Clar_SpCard/HealthState/filter=Tag,unique=Tag") == true)
 then
 	result(o_14612, enums={10:'Degraded/Warning', 15:'Minor failure', 20:'Major failure'}) in (10, 15, 20)
-endrule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status is critical"
+end
+rule "EMC: VNX Storage Processor Configuration-EMC: VNX Storage Processor health status is critical"
 when
 	message:Message()
 	eval(message.checkOID("SMIS://Clar_SpCard/HealthState/filter=Tag,unique=Tag") == true)
 then
 	result(o_14612, enums={25:'Critical failure', 30:'Non-recoverable error'}) in (25, 30)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status is degraded"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status is degraded"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_EnclosureChassis/HealthState?filter=Tag;unique=ElementName") == true)
 then
 	result(o_14698, enums={10:'Degraded/Warning', 15:'Minor failure', 20:'Major failure'}) in (10, 15, 20)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status is critical"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX enclosure health status is critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_EnclosureChassis/HealthState?filter=Tag;unique=ElementName") == true)
 then
 	result(o_14698, enums={25:'Critical failure', 30:'Non-recoverable error'}) in (25, 30)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX Enclosure Inlet Temperature has returned to normal"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX Enclosure Inlet Temperature has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_EnclosureChassis/EMCAverageAirInletTemperature?filter=Tag;unique=ElementName") == true)
 then
 	result(o_14701) <= threshold(t_739) and active(a_2487)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX Enclosure Inlet Temperature exceeded threshold"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX Enclosure Inlet Temperature exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_EnclosureChassis/EMCAverageAirInletTemperature?filter=Tag;unique=ElementName") == true)
 then
 	result(o_14701) > threshold(t_739)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is unknown"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is unknown"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/ElementName?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={0:'Unknown'}, label='o_14705') == 0
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is unknown"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is unknown"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/HealthState?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={0:'Unknown'}, label='o_14705') == 0
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is degraded"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is degraded"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/ElementName?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={10:'Degraded/Warning', 15:'Minor failure', 20:'Major failure'}, label='o_14705') in (10, 15, 20)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is degraded"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is degraded"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/HealthState?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={10:'Degraded/Warning', 15:'Minor failure', 20:'Major failure'}, label='o_14705') in (10, 15, 20)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is critical"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/ElementName?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={25:'Critical failure', 30:'Non-recoverable error'}, label='o_14705') in (25, 30)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is critical"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status is critical"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/HealthState?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, enums={25:'Critical failure', 30:'Non-recoverable error'}, label='o_14705') in (25, 30)
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status has returned to normal"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/ElementName?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, label='o_14705') == 5 and (active(a_2480) or active(a_2481) or active(a_2482))
-endrule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status has returned to normal"
+end
+rule "EMC: VNX Enclosure Configuration-EMC: VNX power supply status has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("smis.associate://Clar_PowerDevice/HealthState?filter=DeviceID;unique=DeviceID") == true)
 then
 	result(o_14706, label='o_14705') == 5 and (active(a_2480) or active(a_2481) or active(a_2482))
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now OK"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.1") == true)
 then
 	result(o_2424)  == 3 and (active(a_512) or active(a_513))
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now CRITICAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now CRITICAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.1") == true)
 then
 	result(o_2424)  == 5
-endrule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now NON-CRITICAL"
+end
+rule "Dell PowerConnect: Status-Dell: PowerConnect Global Status is now NON-CRITICAL"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10895.3000.1.2.110.1") == true)
 then
 	result(o_2424) == 4
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = OK"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.2.1") == true)
 then
 	result(o_2431)  == 3 and (active(a_522) or active(a_523) or active(a_524))
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = non-critical"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = non-critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.2.1") == true)
 then
 	result(o_2431)  == 4
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = Critical"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.2.1") == true)
 then
 	result(o_2431)  == 5
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = non-recoverable"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Global Status = non-recoverable"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.2.1") == true)
 then
 	result(o_2431)  == 6
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Mailbox Door is Open"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Mailbox Door is Open"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.3.1.1.24") == true)
 then
 	result(o_2440) == 2
-endrule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Mailbox Door is Closed"
+end
+rule "Dell PowerVault: Tape Library Configuration-Dell: PowerVault Mailbox Door is Closed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.674.10893.2.101.3.1.1.24") == true)
 then
 	result(o_2440) == 3 and active(a_527)
-endrule "HP ISM: Disk Array-HP-ISM: Physical Drive OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physical Drive OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.5") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 2 and (active(a_575) or active(a_576))
-endrule "HP ISM: Disk Array-HP-ISM: Physical Drive OK"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physical Drive OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.6") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 2 and (active(a_575) or active(a_576))
-endrule "HP ISM: Disk Array-HP-ISM: Physical Drive Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physical Drive Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.5") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 3
-endrule "HP ISM: Disk Array-HP-ISM: Physical Drive Failed"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physical Drive Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.6") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 3
-endrule "HP ISM: Disk Array-HP-ISM: Physcial Drive Predictive Failure"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physcial Drive Predictive Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.5") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 4
-endrule "HP ISM: Disk Array-HP-ISM: Physcial Drive Predictive Failure"
+end
+rule "HP ISM: Disk Array-HP-ISM: Physcial Drive Predictive Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.3.2.5.1.1.6") == true)
 then
 	result(o_2821, enums={1: 'other', 2: 'OK', 3: 'Failed', 4: 'PredictiveFailure'}, label='o_2831') == 4
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Degraded"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.3") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') == 3
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Degraded"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.9") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') == 3
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Failure"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.3") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') == 4
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Failure"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.9") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') == 4
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition OK"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.3") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') ==2 and (active(a_590) or active(a_591))
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition OK"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Fan Condition OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.7.1.9") == true)
 then
 	result(o_2836, enums = {1:'other', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2833') ==2 and (active(a_590) or active(a_591))
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply OK"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.2") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 2 and (active(a_587) or active(a_588))
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply OK"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply OK"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.4") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 2 and (active(a_587) or active(a_588))
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Degraded"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.2") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 3
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Degraded"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.4") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 3
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Failure"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.2") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 4
-endrule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Failure"
+end
+rule "HP ISM: Power Supply/Fan-HP-ISM:  Power Supply Failure"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.9.3.1.4") == true)
 then
 	result(o_2838, enums = {1:'Not Present', 2:'OK', 3:'Degraded', 4:'Failed'}, label='o_2839') == 4
-endrule "HP ISM: Temperature-HP-ISM:  Temperature Condition Unknown"
+end
+rule "HP ISM: Temperature-HP-ISM:  Temperature Condition Unknown"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.8.1.6") == true)
 then
 	result(o_2843, enums={1: 'other', 2: 'ok', 3: 'degraded', 4: 'failed'})  == 1
-endrule "HP ISM: Temperature-HP-ISM:  Temperature Condition Healthy"
+end
+rule "HP ISM: Temperature-HP-ISM:  Temperature Condition Healthy"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.8.1.6") == true)
 then
 	result(o_2843, enums={1: 'other', 2: 'ok', 3: 'degraded', 4: 'failed'})  == 2 and (active(a_593) or active(a_594) or active(a_595))
-endrule "HP ISM: Temperature-HP-ISM:  Temperature Condition Degraded"
+end
+rule "HP ISM: Temperature-HP-ISM:  Temperature Condition Degraded"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.8.1.6") == true)
 then
 	result(o_2843, enums={1: 'other', 2: 'ok', 3: 'degraded', 4: 'failed'})  == 3
-endrule "HP ISM: Temperature-HP-ISM:  Temperature Condition Failed"
+end
+rule "HP ISM: Temperature-HP-ISM:  Temperature Condition Failed"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.232.6.2.6.8.1.6") == true)
 then
 	result(o_2843, enums={1: 'other', 2: 'ok', 3: 'degraded', 4: 'failed'})  == 4
-endrule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has returned to normal."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("AverageDeliveryTime") == true)
 then
 	result(o_3528,label='o_3529') <= threshold(t_153) and active(a_748)
-endrule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has returned to normal."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3528,label='o_3529') <= threshold(t_153) and active(a_748)
-endrule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has exceeded threshold."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has exceeded threshold."
 when
 	message:Message()
 	eval(message.checkOID("AverageDeliveryTime") == true)
 then
 	result(o_3528,label='o_3529') > threshold(t_153)
-endrule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has exceeded threshold."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Avg Delivery Time has exceeded threshold."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3528,label='o_3529') > threshold(t_153)
-endrule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has returned to normal."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3530,label='o_3529') <= threshold(t_154) and active(a_750)
-endrule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has returned to normal."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("ReceiveQueueSize") == true)
 then
 	result(o_3530,label='o_3529') <= threshold(t_154) and active(a_750)
-endrule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has exceeded threshold."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has exceeded threshold."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3530,label='o_3529') > threshold(t_154) and o_3530 < 0xffffffff
-endrule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has exceeded threshold."
+end
+rule "Microsoft Exchange-Exchange: Mailbox Receive Queue Size has exceeded threshold."
 when
 	message:Message()
 	eval(message.checkOID("ReceiveQueueSize") == true)
 then
 	result(o_3530,label='o_3529') > threshold(t_154) and o_3530 < 0xffffffff
-endrule "Microsoft SQL Server Buffer Statistics-SQL Server: Buffer Cache Hit Ratio under threshold."
+end
+rule "Microsoft SQL Server Buffer Statistics-SQL Server: Buffer Cache Hit Ratio under threshold."
 when
 	message:Message()
 	eval(message.checkOID("Buffercachehitratio") == true)
 then
 	result(o_3713) < threshold(t_166)
-endrule "Microsoft SQL Server Buffer Statistics-SQL Server: Buffer Cache Hit Ratio has returned to normal."
+end
+rule "Microsoft SQL Server Buffer Statistics-SQL Server: Buffer Cache Hit Ratio has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("Buffercachehitratio") == true)
 then
 	result(o_3713) >= threshold(t_166) and active(a_763)
-endrule "Microsoft SQL Server Buffer Statistics-SQL Server: Page Life Expectancy has returned to normal."
+end
+rule "Microsoft SQL Server Buffer Statistics-SQL Server: Page Life Expectancy has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("Pagelifeexpectancy") == true)
 then
 	result(o_3720) <= threshold(t_165) and active(a_761)
-endrule "Microsoft SQL Server Buffer Statistics-SQL Server: Page Life Expectancy has exceeded threshold."
+end
+rule "Microsoft SQL Server Buffer Statistics-SQL Server: Page Life Expectancy has exceeded threshold."
 when
 	message:Message()
 	eval(message.checkOID("Pagelifeexpectancy") == true)
 then
 	result(o_3720) > threshold(t_165)
-endrule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio below threshold."
+end
+rule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio below threshold."
 when
 	message:Message()
 	eval(message.checkOID("CacheHitRatio") == true)
 then
 	result(o_3723,label='o_3722') < threshold(t_167)
-endrule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio below threshold."
+end
+rule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio below threshold."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3723,label='o_3722') < threshold(t_167)
-endrule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio has returned to normal."
+end
+rule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("CacheHitRatio") == true)
 then
 	result(o_3723,label='o_3722') >= threshold(t_167) and active(a_765)
-endrule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio has returned to normal."
+end
+rule "Microsoft SQL Server Plan Cache Statistics-SQL Server: Plan Cache Hit Ratio has returned to normal."
 when
 	message:Message()
 	eval(message.checkOID("Name") == true)
 then
 	result(o_3723,label='o_3722') >= threshold(t_167) and active(a_765)
-endrule "Cisco: CPU-Cisco: CPU has returned to normal"
+end
+rule "Cisco: CPU-Cisco: CPU has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("CPU 5 Minute Average") == true)
 then
 	result(o_444, label='o_443') <= threshold(t_10) and active(a_84)
-endrule "Cisco: CPU-Cisco: CPU has returned to normal"
+end
+rule "Cisco: CPU-Cisco: CPU has returned to normal"
 when
 	message:Message()
 	eval(message.checkOID("CPU Description") == true)
 then
 	result(o_444, label='o_443') <= threshold(t_10) and active(a_84)
-endrule "Cisco: CPU-Cisco: CPU has exceeded threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU 5 Minute Average") == true)
 then
 	result(o_444, label='o_443') > threshold(t_10)
-endrule "Cisco: CPU-Cisco: CPU has exceeded threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU Description") == true)
 then
 	result(o_444, label='o_443') > threshold(t_10)
-endrule "Cisco: CPU-Cisco: CPU has exceeded minor threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded minor threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU 5 Minute Average") == true)
 then
 	result(o_444, label='o_443') > threshold(t_278)
-endrule "Cisco: CPU-Cisco: CPU has exceeded minor threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded minor threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU Description") == true)
 then
 	result(o_444, label='o_443') > threshold(t_278)
-endrule "Cisco: CPU-Cisco: CPU has exceeded major threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded major threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU 5 Minute Average") == true)
 then
 	result(o_444, label='o_443') > threshold(t_279)
-endrule "Cisco: CPU-Cisco: CPU has exceeded major threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded major threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU Description") == true)
 then
 	result(o_444, label='o_443') > threshold(t_279)
-endrule "Cisco: CPU-Cisco: CPU has exceeded critical threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded critical threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU 5 Minute Average") == true)
 then
 	result(o_444, label='o_443') > threshold(t_280) and not (result(o_444, label='o_443') > 100)
-endrule "Cisco: CPU-Cisco: CPU has exceeded critical threshold"
+end
+rule "Cisco: CPU-Cisco: CPU has exceeded critical threshold"
 when
 	message:Message()
 	eval(message.checkOID("CPU Description") == true)
 then
 	result(o_444, label='o_443') > threshold(t_280) and not (result(o_444, label='o_443') > 100)
-endrule "Cisco: WLC Temperature-Cisco: WLC Temperature Normal"
+end
+rule "Cisco: WLC Temperature-Cisco: WLC Temperature Normal"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.2.3.1.13") == true)
 then
 	result(o_6512) <= threshold(t_236) and (active(a_1072) or active(a_1073) or active(a_1074))
-endrule "Cisco: WLC Temperature-Cisco: WLC Temperature Critical"
+end
+rule "Cisco: WLC Temperature-Cisco: WLC Temperature Critical"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.2.3.1.13") == true)
 then
 	result(o_6512) > threshold(t_234)
-endrule "Cisco: WLC Temperature-Cisco: WLC Temperature Major"
+end
+rule "Cisco: WLC Temperature-Cisco: WLC Temperature Major"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.2.3.1.13") == true)
 then
 	result(o_6512) > threshold(t_235) and o_6512 <= t_234
-endrule "Cisco: WLC Temperature-Cisco: WLC Temperature Minor"
+end
+rule "Cisco: WLC Temperature-Cisco: WLC Temperature Minor"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.14179.2.3.1.13") == true)
 then
 	result(o_6512) > threshold(t_236) and o_6512 <= t_235
-endrule "Fortigate: VPN Status-Fortigate: VPN Down"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Down"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.2") == true)
 then
 	result(o_6522 != 2, label='o_6520')
-endrule "Fortigate: VPN Status-Fortigate: VPN Down"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Down"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.2") == true)
 then
 	result(o_6522 != 2, label='o_6520')
-endrule "Fortigate: VPN Status-Fortigate: VPN Down"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Down"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.20") == true)
 then
 	result(o_6522 != 2, label='o_6520')
-endrule "Fortigate: VPN Status-Fortigate: VPN Down"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Down"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.20") == true)
 then
 	result(o_6522 != 2, label='o_6520')
-endrule "Fortigate: VPN Status-Fortigate: VPN Up"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Up"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.2") == true)
 then
 	result(o_6522 == 2, label='o_6520') and active(a_1078)
-endrule "Fortigate: VPN Status-Fortigate: VPN Up"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Up"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.2") == true)
 then
 	result(o_6522 == 2, label='o_6520') and active(a_1078)
-endrule "Fortigate: VPN Status-Fortigate: VPN Up"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Up"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.20") == true)
 then
 	result(o_6522 == 2, label='o_6520') and active(a_1078)
-endrule "Fortigate: VPN Status-Fortigate: VPN Up"
+end
+rule "Fortigate: VPN Status-Fortigate: VPN Up"
 when
 	message:Message()
 	eval(message.checkOID(".1.3.6.1.4.1.12356.101.12.2.2.1.20") == true)

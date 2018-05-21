@@ -118,6 +118,7 @@ public class AutoRuleBuilder
         strBuild.append(formula);
         strBuild.append("\n");
         strBuild.append("end");
+        strBuild.append("\n");
 
         return strBuild.toString();
     }
