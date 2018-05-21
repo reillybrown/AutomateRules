@@ -24,24 +24,21 @@ public class AutoRuleBuilder
     {
         try
         {
-            String filePath = new File("").getAbsolutePath().concat("/rules/Pipe Final EM7 Rules.csv");
+            String filePath = new File("").getAbsolutePath().concat("/rules/New Pipe Final EM7 Rules.csv");
             FileReader fr = new FileReader(filePath);
             BufferedReader br = new BufferedReader(fr);
             String line = "";
             br.readLine();
             List<String> list = new ArrayList<String>();
-            int count = 1;
+            int countLine = 1;
             while ((line = br.readLine()) != null)
             {
-                count++;
-                if (count == 48) {
-                    System.out.println("");
-                }
+                countLine++;
                 line = line.replace("%", "");
                 line = line.replace("|", "@");
                 String[] input = line.split("@");
                 String[] args = new String[4];
-                System.out.println(count + " : " + input[0]);
+                System.out.println(countLine + " : " + input[0]);
                 args[0] = input[1] + "-" + input[2];
                 args[1] = input[5];
                 args[2] = input[3];
