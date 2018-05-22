@@ -39,9 +39,13 @@ public class AutoRuleBuilder
                 String[] input = line.split("@");
                 String[] args = new String[4];
                 System.out.println(countLine + " : " + input[0]);
-                args[0] = input[1] + "-" + input[2];
+                args[0] = input[1] + " - " + input[2];
                 args[1] = input[5];
                 args[2] = input[3];
+                args[2].replace("\"", "");
+                args[2].replace("\'", "");
+                args[2].replace(")", "");
+                args[2].replace("(", "");
                 System.out.println(args[0]);
                 args[3] = input[8];
                 list.add(buildARule(args[0], args[1], args[2]));
@@ -109,13 +113,13 @@ public class AutoRuleBuilder
         //when
         strBuild.append("when\n");
         strBuild.append("\tmessage:Message()\n");
-        strBuild.append("\teval(message.checkOID(\"");
-        strBuild.append(oid);
-        strBuild.append("\") == true)\n");
+        strBuild.append("\teval(message.searchObject(");
+        strBuild.append(formula);
+        strBuild.append("))\n");
+        strBuild.append("\t");
         //then
         strBuild.append("then\n");
-        strBuild.append("\t");
-        strBuild.append(formula);
+        strBuild.append("//Do something");
         strBuild.append("\n");
         strBuild.append("end");
         strBuild.append("\n");
