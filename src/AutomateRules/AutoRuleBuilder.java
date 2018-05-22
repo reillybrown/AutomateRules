@@ -111,15 +111,15 @@ public class AutoRuleBuilder
         strBuild.append("\"");
         strBuild.append("\n");
         //when
-        strBuild.append("\twhen\n");
-        strBuild.append("\t\tmessage:Message()\n");
-        strBuild.append("\t\teval(message.searchObject(");
+        strBuild.append("when\n");
+        strBuild.append("\tmessage:Message()\n");
+        strBuild.append("\teval(message.searchObject(");
         strBuild.append(formula);
         strBuild.append("))\n");
-        strBuild.append("\t");
+        strBuild.append("");
         //then
         strBuild.append("then\n");
-        strBuild.append("\t\t//Do something");
+        strBuild.append("\t//Do something");
         strBuild.append("\n");
         strBuild.append("end");
         strBuild.append("\n");
